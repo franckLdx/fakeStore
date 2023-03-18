@@ -1,0 +1,9 @@
+.navigationBar {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  border: 2px solid black;
+  width: 200px;
+  min-height: calc(100vh - 20px);
+  min-width: 200px;
+}

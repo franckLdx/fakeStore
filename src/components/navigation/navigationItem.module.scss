@@ -1,0 +1,20 @@
+.navigationItem {
+  display: block;
+  padding: 10px 30px 10px 30px;
+  text-transform: capitalize;
+  color: black;
+  border: 1px solid black; 
+  border-right: none;
+  border-left: none;
+  margin-top: -1px;
+  
+  &:first-child {
+    margin-top: none;
+    border-top-width: 2px;
+  }
+  
+  &:last-child {
+    border-bottom-width: 2px;
+  }
+
+}
