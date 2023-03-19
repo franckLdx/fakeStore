@@ -1,8 +1,9 @@
 import { FC } from "react";
 import { Link, useRouteError } from "react-router-dom";
+import { Page } from "../components/page/Page";
 import { homeUrl } from "./bestSellers/routeHelpers";
 
-export const NotFound: FC = () => {
+const NotFound: FC = () => {
   const error = useRouteError() as any;
   console.error(error);
   const errorMessage = (error.statusText || error.message) ?? 'Unkonwn error'
@@ -16,5 +17,7 @@ export const NotFound: FC = () => {
       </p>
       <Link to={homeUrl}>Home</Link>
     </div>
-  );
+  )
 }
+
+export default NotFound

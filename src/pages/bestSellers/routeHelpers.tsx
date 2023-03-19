@@ -1,6 +1,8 @@
+import { lazy } from "react"
 import { RouteObject, useNavigate } from "react-router-dom"
-import { NotFound } from "../NotFound"
 import BestSellers from "./BestSelllers"
+
+const NotFound = lazy(() => import('../NotFound'));
 
 export const homeUrl = '/'
 
@@ -12,5 +14,5 @@ export const useNavigateToHome = (): () => void => {
 export const bestSellesRoute: RouteObject = {
   path: homeUrl,
   element: <BestSellers />,
-  // errorElement: <NotFound />,
+  errorElement: <NotFound />,
 }
