@@ -29,3 +29,11 @@ export const useGetProducts = ({ limit }: ProductParams) => useQuery({
     return res.json()
   }
 })
+
+export const useGetProduct = (productId: number) => useQuery({
+  queryKey: ['products', 'product', productId],
+  queryFn: async (): Promise<ProductData> => {
+    const res = await fetch(`${productUrl}${productId}`)
+    return res.json()
+  }
+})
