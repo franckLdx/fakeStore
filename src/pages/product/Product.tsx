@@ -1,28 +1,31 @@
 import { FC } from "react";
+import { Loader } from "../../components/loader/Loader";
 import { Page } from "../../components/page/Page";
 import { PageTitle } from "../../components/pageTitle/PageTitle";
 import { useGetProduct } from "../../services/product";
 
-import syles from './product.module.scss';
+import styles from './product.module.scss';
 
 interface ProductProps {
   productId: number
 }
 
 const Product: FC<ProductProps> = ({ productId }) => {
-  const product = useGetProduct(productId)
-
-  if (!product.isSuccess) {
-    return null
-  }
+  const productQuery = useGetProduct(productId)
 
   return (
     <Page>
-      <PageTitle title={product.data.title} />
-      <h3> subtitle={product.data.description}</h3>
-      <div className={syles.imageContainer}>
-        <img src={product.data.image} alt="product's image" />
-      </div>
+      {productQuery.isLoading && <Loader containerClassName={styles.loaderContainer} />}
+      {productQuery.isSuccess && <>
+        <PageTitle title={productQuery.data.title} />
+        <h3> subtitle={productQuery.data.description}</h3>
+        <h3>Price: ${productQuery.data.price}</h3>
+        <h3>Rate: ${productQuery.data.rating.rate}  ({productQuery.data.rating.count} votes)</h3>
+        <div className={styles.imageContainer}>
+          <img src={productQuery.data.image} alt="product's image" />
+        </div>
+      </>
+      }
     </Page>
   )
 }

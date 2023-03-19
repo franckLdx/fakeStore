@@ -14,7 +14,7 @@ const Category: FC<CategoryProps> = ({ category }) => {
   return (
     <Page>
       <PageTitle title={category} />
-      <ProductsContainer products={products} />
+      <ProductsContainer productsQuery={products} />
     </Page>
   )
 }

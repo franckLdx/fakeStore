@@ -10,7 +10,7 @@ const BestSellers: FC = () => {
   return (
     <Page>
       <PageTitle title="Best Sellers" />
-      <ProductsContainer products={products} />
+      <ProductsContainer productsQuery={products} />
     </Page>
   )
 }
