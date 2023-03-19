@@ -1,8 +1,9 @@
 import { FC } from "react";
 import { NavigationItem } from "./NavigationItem";
 import { useGetCaterogies } from "../../services/categories";
-import { Loader } from "../loader/Loader";
 import { NavigationLoader } from "./NavigationLoader";
+
+import styles from './navigation.module.scss'
 
 export const Navigation: FC = () => {
   const categories = useGetCaterogies()
@@ -16,7 +17,7 @@ export const Navigation: FC = () => {
   }
 
   return (
-    <nav>
+    <nav className={styles.navigation}>
       {categories.data.map(
         category => <NavigationItem key={category} category={category} />
       )}
