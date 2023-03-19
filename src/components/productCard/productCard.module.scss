@@ -6,9 +6,19 @@
   align-items: center;
   width: 500px;
   height: 500px;
-  box-shadow: 15px 10px 10px gray;
+  box-shadow: 7px 5px 5px gray;
   margin-bottom: 20px;
   cursor: pointer;
+  .title {opacity: 80%;}
+
+  &:active,
+  &:hover {
+    box-shadow: 15px 10px 10px gray;
+    .title {
+      font-weight: bolder;
+      opacity: 100%;
+    }
+  }
 }
 
 .image {

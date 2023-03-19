@@ -1,6 +1,6 @@
 import { FC } from "react";
 import { Page } from "../../components/page/Page";
-import { PageTitle } from "../../components/titles/PageTitle";
+import { PageTitle } from "../../components/pageTitle/PageTitle";
 import { ProductsContainer } from "../../components/productsContainer/productsContainer";
 import { CategoryData, useGetProductsCategory } from "../../services/categories";
 

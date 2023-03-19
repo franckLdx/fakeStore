@@ -5,6 +5,7 @@ import { ProductCard } from "../productCard/ProductCard"
 import { ProductsContainerLoader } from "./productsContainerLoader"
 
 import styles from './productsContainer.module.scss'
+import { Loader } from "../loader/Loader"
 
 interface ProductsContainerProps {
   products: UseQueryResult<ProductData[], unknown>
@@ -12,7 +13,7 @@ interface ProductsContainerProps {
 
 export const ProductsContainer: FC<ProductsContainerProps> = ({ products }) => (
   <div className={styles.productsContainer}>
-    {products.isLoading && <ProductsContainerLoader />}
+    {products.isLoading && <Loader containerClassName={styles.loaderContainer} />}
     {products.isSuccess && products.data.map(product => <ProductCard key={product.id} product={product} />)}
   </div>
 )

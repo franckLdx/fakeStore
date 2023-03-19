@@ -1,7 +1,6 @@
 import { FC } from "react";
 import { Page } from "../../components/page/Page";
-import { PageTitle } from "../../components/titles/PageTitle";
-import { Subtitle } from "../../components/titles/Subtitle";
+import { PageTitle } from "../../components/pageTitle/PageTitle";
 import { useGetProduct } from "../../services/product";
 
 import syles from './product.module.scss';
@@ -20,7 +19,7 @@ const Product: FC<ProductProps> = ({ productId }) => {
   return (
     <Page>
       <PageTitle title={product.data.title} />
-      <Subtitle subtitle={product.data.description} />
+      <h3> subtitle={product.data.description}</h3>
       <div className={syles.imageContainer}>
         <img src={product.data.image} alt="product's image" />
       </div>
