@@ -1,3 +1,4 @@
+import { DevTools } from 'jotai-devtools'
 import React, { Suspense } from 'react'
 import ReactDOM from 'react-dom/client'
 import { QueryClientProvider } from 'react-query'
@@ -9,6 +10,7 @@ import { queryClient } from './services/reactQuery'
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
+    <DevTools />
     <ErrorBoundary>
       <QueryClientProvider client={queryClient}>
         <Suspense fallback={<LoadingPage />}>

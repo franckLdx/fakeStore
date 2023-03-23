@@ -1,5 +1,4 @@
 import { useQuery } from "react-query";
-import { CategoryData } from "./categories"
 
 export const productUrl = 'https://fakestoreapi.com/products/';
 

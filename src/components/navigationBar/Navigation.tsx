@@ -17,10 +17,12 @@ export const Navigation: FC = () => {
   }
 
   return (
-    <nav className={styles.navigation}>
-      {categories.data.map(
-        category => <NavigationItem key={category} category={category} />
-      )}
-    </nav>
+    <>
+      <nav className={styles.navigation}>
+        {categories.data.map(
+          category => <NavigationItem key={category} category={category} />
+        )}
+      </nav>
+    </>
   )
 }

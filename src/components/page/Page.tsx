@@ -1,5 +1,5 @@
 import { FC, ReactNode } from "react";
-import { NavigationBar } from "../navigation/NavigationBar";
+import { NavigationBar } from "../navigationBar/NavigationBar";
 
 import styles from './page.module.scss'
 

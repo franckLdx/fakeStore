@@ -1,7 +1,7 @@
 import { FC } from "react";
 import { Loader } from "../../components/loader/Loader";
 import { Page } from "../../components/page/Page";
-import { PageTitle } from "../../components/pageTitle/PageTitle";
+import { PageTitle } from "../../components/page/pageTitle/PageTitle";
 import { useGetProduct } from "../../services/product";
 
 import styles from './product.module.scss';

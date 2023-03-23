@@ -1,6 +1,6 @@
 import { FC } from "react";
-import { useNavigateToProduct } from "../../pages/product/routeHelper";
-import { ProductData } from "../../services/product";
+import { useNavigateToProduct } from "../../../pages/product/routeHelper";
+import { ProductData } from "../../../services/product";
 
 import styles from "./productCard.module.scss";
 

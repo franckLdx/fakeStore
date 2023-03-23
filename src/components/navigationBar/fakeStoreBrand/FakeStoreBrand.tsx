@@ -1,6 +1,6 @@
 import { FC } from "react";
 import BrandImage from '/fakeStore.png';
-import { useNavigateToHome } from "../../routing/hooks";
+import { useNavigateToHome } from "../../../routing/hooks";
 
 import styles from './fakeStoreBrand.module.scss';
 

@@ -1,7 +1,7 @@
 import { FC } from "react";
 import { Page } from "../../components/page/Page";
-import { PageTitle } from "../../components/pageTitle/PageTitle";
-import { ProductsContainer } from "../../components/productsContainer/productsContainer";
+import { PageTitle } from "../../components/page/pageTitle/PageTitle";
+import { ProductsContainer } from "../../components/product/productsContainer/productsContainer";
 import { useGetProducts } from "../../services/product";
 
 const BestSellers: FC = () => {

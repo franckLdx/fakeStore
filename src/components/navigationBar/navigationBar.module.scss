@@ -1,0 +1,22 @@
+.navigationBar {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  border: 2px solid black;
+  width: 200px;
+  min-width: 200px;
+  min-height: calc(100vh - 20px);
+}
+
+.loginButton {
+  font-weight: bolder;
+  color: white;
+  background-color: rgb(136, 14, 134);
+  padding: 8px;
+  margin: 6px;
+  border-radius: 7px;
+  cursor: pointer;
+  &:hover {
+    box-shadow: 3px 5px 5px gray;
+  }
+}
