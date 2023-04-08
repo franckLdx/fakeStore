@@ -22,7 +22,9 @@ export const NavigationBar: FC = () => {
         {isShowLogin && <LoginDialog onClose={onCloseLogin} />}
         <FakeStoreBrand />
         <Categories />
-        <Button onClick={onOpenLogin}>Login</Button>
+        <div className={styles.loginButtonContainer}>
+          <Button className={styles.loginButton} onClick={onOpenLogin}>Login</Button>
+        </div>
       </div>
     </div>
   )

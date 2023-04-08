@@ -8,7 +8,6 @@ interface OverlayProps {
 
 export const Overlay: FC<OverlayProps> = ({ children }) => (
   <div className={styles.overlay}>
-    FOO
     {children}
   </div>
 )
