@@ -6,5 +6,9 @@ interface PageTitleProps {
   title: string
 }
 
-export const PageTitle: FC<PageTitleProps> = ({ title }) =>
-  <h2 className={styles.pageTitle}>{title}</h2>
+export const PageTitle: FC<PageTitleProps> = ({ title }) => (
+  <>
+    <div className={styles.blank}></div>
+    <h2 className={styles.pageTitle}>{title}</h2>
+  </>
+)
