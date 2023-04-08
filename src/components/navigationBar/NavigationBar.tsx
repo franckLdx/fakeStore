@@ -1,20 +1,29 @@
 import { FC, useState } from "react";
 import { LoginDialog } from "../../dialog/LoginDialog";
+import { Button } from "../button/Button";
 import { FakeStoreBrand } from "./fakeStoreBrand/FakeStoreBrand";
-import { Navigation } from "./Navigation";
+import { Categories } from "./Categories";
 
 import styles from './navigationBar.module.scss'
 
 export const NavigationBar: FC = () => {
   const [isShowLogin, setIsShowLogin] = useState<boolean>(false)
-  const toggleIsShowLogin = () => setIsShowLogin(current => !current)
+
+  const onCloseLogin = () => setIsShowLogin(false)
+
+  const onOpenLogin: React.MouseEventHandler<HTMLButtonElement> = event => {
+    event.stopPropagation()
+    setIsShowLogin(true)
+  }
 
   return (
     <div className={styles.navigationBar}>
-      {isShowLogin && <LoginDialog />}
-      <FakeStoreBrand />
-      <Navigation />
-      <button className={styles.loginButton} onClick={toggleIsShowLogin}>Login</button>
+      <div className={styles.content}>
+        {isShowLogin && <LoginDialog onClose={onCloseLogin} />}
+        <FakeStoreBrand />
+        <Categories />
+        <Button onClick={onOpenLogin}>Login</Button>
+      </div>
     </div>
   )
 }

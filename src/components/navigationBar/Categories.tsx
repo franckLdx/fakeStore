@@ -5,7 +5,7 @@ import { Loader } from "../loader/Loader";
 
 import styles from './navigation.module.scss'
 
-export const Navigation: FC = () => {
+export const Categories: FC = () => {
   const categories = useGetCaterogies()
 
   if (categories.isLoading) {
@@ -18,7 +18,7 @@ export const Navigation: FC = () => {
 
   return (
     <>
-      <nav className={styles.navigation}>
+      <nav>
         {categories.data.map(
           category => <NavigationItem key={category} category={category} />
         )}
