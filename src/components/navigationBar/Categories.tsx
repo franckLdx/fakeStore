@@ -1,7 +1,7 @@
 import { FC } from "react";
-import { NavigationItem } from "./NavigationItem";
-import { useGetCaterogies } from "../../services/categories";
-import { Loader } from "../loader/Loader";
+import { NavigationItem } from "./navigationItem";
+import { useGetCaterogies } from "../../services";
+import { Loader } from "../loader";
 
 import styles from './navigation.module.scss'
 

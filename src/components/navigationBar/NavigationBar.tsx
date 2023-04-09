@@ -1,25 +1,22 @@
-import { FC, useState } from "react";
-import { LoginDialog } from "../../dialog/LoginDialog";
-import { Button } from "../button/Button";
-import { FakeStoreBrand } from "./fakeStoreBrand/FakeStoreBrand";
+import { FC, MouseEventHandler } from "react";
+import { Button } from "../button";
+import { FakeStoreBrand } from "./fakeStoreBrand";
 import { Categories } from "./Categories";
 
 import styles from './navigationBar.module.scss'
+import { useSetAtom } from "jotai";
+import { isDisplayLoginAtom } from "../../dialog/login/atom";
 
 export const NavigationBar: FC = () => {
-  const [isShowLogin, setIsShowLogin] = useState<boolean>(false)
-
-  const onCloseLogin = () => setIsShowLogin(false)
-
-  const onOpenLogin: React.MouseEventHandler<HTMLButtonElement> = event => {
+  const setIsDisplayLogin = useSetAtom(isDisplayLoginAtom)
+  const onOpenLogin: MouseEventHandler<HTMLButtonElement> = event => {
     event.stopPropagation()
-    setIsShowLogin(true)
+    setIsDisplayLogin(true)
   }
 
   return (
     <div className={styles.navigationBar}>
       <div className={styles.content}>
-        {isShowLogin && <LoginDialog onClose={onCloseLogin} />}
         <FakeStoreBrand />
         <Categories />
         <div className={styles.loginButtonContainer}>
