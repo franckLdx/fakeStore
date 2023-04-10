@@ -5,7 +5,7 @@ import { LoginDialog, isDisplayLoginAtom } from "./login";
 export const DialogManager: FC = () => {
   const isDisplayLogin = useAtomValue(isDisplayLoginAtom)
   const setDisplayLoginAtom = useSetAtom(isDisplayLoginAtom)
-  const onCloseLogin = () => setDisplayLoginAtom(false)
+  const onCloseLogin = () => { debugger; setDisplayLoginAtom(false) }
 
   return (<>{
     isDisplayLogin && <LoginDialog onClose={onCloseLogin} />}

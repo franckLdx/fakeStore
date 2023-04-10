@@ -1,7 +1,7 @@
-import { FC } from "react";
+import { FC, MouseEventHandler } from "react";
 import { Field, Form } from "react-final-form";
 import { Button } from "../../components/button/Button";
-import { useClickOutside } from "../../helpers/hooks";
+import { useGlobalClick } from "../../helpers/hooks";
 import { LoginParams } from "../../services/login";
 import { Dialog } from "../Dialog";
 
@@ -12,30 +12,50 @@ interface LoginDialogProps {
 }
 
 export const LoginDialog: FC<LoginDialogProps> = ({ onClose }) => {
-  const onSubmit = (params: LoginParams) => { }
-  useClickOutside(onClose)
 
-  const onCancel: React.MouseEventHandler<HTMLButtonElement> = event => {
-    event.stopPropagation()
-    onClose()
-  }
+  const onClick: MouseEventHandler<HTMLFormElement> = event => event.stopPropagation()
+
+  const onSubmit = (params: LoginParams) => { }
+
+  useGlobalClick(onClose)
+
+  const validatePassword = (value: string | undefined) => value && value.length >= 8 ? undefined : "boo"
 
   return (
     <Dialog>
       <Form<LoginParams> onSubmit={onSubmit}
-        render={() => (
-          <form className={styles.login} method="POST">
+        render={({ handleSubmit, invalid }) => (
+          <form className={styles.login} onSubmit={handleSubmit} onClick={onClick}>
             <div className={styles.userName}>
               <label className={styles.label}>Login</label>
-              <Field name="username" component="input" placeholder="login" />
+              <Field
+                name="username"
+                component="input"
+                placeholder="login"
+              />
             </div>
             <div className={styles.line}>
               <label className={styles.label}>Password</label>
-              <Field name="password" component="input" placeholder="password" type="password" />
+              <Field
+                name="password"
+                component="input"
+                placeholder="password"
+                type="password"
+                validate={validatePassword}
+              />
             </div>
             <div className={styles.buttonsContainer}>
-              <Button className={styles.button} type="submit" onClick={(e) => e.stopPropagation()}>Login</Button>
-              <Button className={styles.button} onClick={onCancel}>Cancel</Button>
+              <Button
+                className={styles.button}
+                type="submit"
+                disabled={invalid}>
+                Login
+              </Button>
+              <Button
+                className={styles.button}
+                onClick={onClose}>
+                Cancel
+              </Button>
             </div>
           </form >
         )}
