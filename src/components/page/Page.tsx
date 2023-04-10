@@ -4,6 +4,7 @@ import { LoginDialog, isDisplayLoginAtom } from "../../dialog";
 import { useAtom, useAtomValue, useSetAtom } from "jotai";
 
 import styles from './page.module.scss'
+import { DialogManager } from "../../dialog/DialogManager";
 
 interface PageProps {
   children: ReactNode
@@ -16,7 +17,7 @@ export const Page: FC<PageProps> = ({ children }) => {
 
   return (
     <section className={styles.page}>
-      {isDisplayLogin && <LoginDialog onClose={onCloseLogin} />}
+      <DialogManager />
       <NavigationBar />
       <div className={styles.children}>
         {children}
