@@ -1,13 +1,11 @@
 import React, { FC } from "react";
-import { useAtomValue, useSetAtom } from "jotai";
+import { useAtomValue } from "jotai";
 import { LoginDialog, isDisplayLoginAtom } from "./login";
 
 export const DialogManager: FC = () => {
   const isDisplayLogin = useAtomValue(isDisplayLoginAtom)
-  const setDisplayLoginAtom = useSetAtom(isDisplayLoginAtom)
-  const onCloseLogin = () => { debugger; setDisplayLoginAtom(false) }
 
   return (<>{
-    isDisplayLogin && <LoginDialog onClose={onCloseLogin} />}
+    isDisplayLogin && <LoginDialog />}
   </>)
 }

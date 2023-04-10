@@ -4,14 +4,14 @@ import { Button } from "../../components/button/Button";
 import { useGlobalClick } from "../../helpers/hooks";
 import { LoginParams } from "../../services/login";
 import { Dialog } from "../Dialog";
+import { useSetAtom } from "jotai";
+import { isDisplayLoginAtom } from "./atom";
 
 import styles from './loginDialog.module.scss'
 
-interface LoginDialogProps {
-  onClose: () => void
-}
-
-export const LoginDialog: FC<LoginDialogProps> = ({ onClose }) => {
+export const LoginDialog: FC = () => {
+  const setDisplayLoginAtom = useSetAtom(isDisplayLoginAtom)
+  const onClose = () => setDisplayLoginAtom(false)
 
   const onClick: MouseEventHandler<HTMLFormElement> = event => event.stopPropagation()
 
@@ -27,7 +27,7 @@ export const LoginDialog: FC<LoginDialogProps> = ({ onClose }) => {
         render={({ handleSubmit, invalid }) => (
           <form className={styles.login} onSubmit={handleSubmit} onClick={onClick}>
             <div className={styles.userName}>
-              <label className={styles.label}>Login</label>
+              <label className={styles.label} htmlFor="username">Login</label>
               <Field
                 name="username"
                 component="input"
@@ -35,13 +35,12 @@ export const LoginDialog: FC<LoginDialogProps> = ({ onClose }) => {
               />
             </div>
             <div className={styles.line}>
-              <label className={styles.label}>Password</label>
+              <label className={styles.label} htmlFor="password">Password</label>
               <Field
                 name="password"
-                component="input"
-                placeholder="password"
-                type="password"
                 validate={validatePassword}
+                component="input"
+                placeholder="password" type="password"
               />
             </div>
             <div className={styles.buttonsContainer}>
@@ -58,8 +57,9 @@ export const LoginDialog: FC<LoginDialogProps> = ({ onClose }) => {
               </Button>
             </div>
           </form >
-        )}
+        )
+        }
       />
-    </Dialog>
+    </Dialog >
   )
 }
