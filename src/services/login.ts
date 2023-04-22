@@ -1,3 +1,4 @@
+import { atom, useSetAtom } from "jotai";
 import { useMutation } from "react-query";
 
 export const loginUrl = 'https://fakestoreapi.com/auth/login';
@@ -9,16 +10,32 @@ export interface LoginParams {
   password: string
 }
 
-export const useLogin = (loginParams: LoginParams) => useMutation({
-  mutationKey: ["login"],
-  mutationFn: async () => {
-    const result = await fetch(loginUrl, {
-      method: 'POST',
-      body: JSON.stringify(loginParams)
-    })
-    if (!result.ok) {
-      throw new Error("Unknown error")
-    }
-    return await result.json()
-  }
-})
+export interface LoginResponse {
+  token: string
+}
+export const useLogin = () => {
+  const setLoginToken = useSetAtom(loginToken)
+
+  return useMutation({
+    mutationKey: ["login"],
+    mutationFn: async (loginParams: LoginParams) => {
+      const result = await fetch(loginUrl, {
+        method: 'POST',
+        headers: {
+          'content-type': 'application/json'
+        },
+
+        body: JSON.stringify(loginParams)
+      })
+      if (!result.ok) {
+        throw new Error("Unknown error")
+      }
+      return await result.json()
+    },
+    onMutate: () => setLoginToken(undefined),
+    onSuccess: (response) => setLoginToken(response.token),
+  })
+}
+
+export const loginToken = atom<string | undefined>(undefined)
+loginToken.debugLabel = "Login token"
