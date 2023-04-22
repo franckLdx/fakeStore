@@ -10,5 +10,10 @@ interface NavigationItemProps {
 }
 
 export const NavigationItem: FC<NavigationItemProps> = ({ category }) => (
-  <Link className={styles.navigationItem} to={getCategoryRoute(category)}>{category}</Link>
+  <Link
+    className={styles.navigationItem}
+    to={getCategoryRoute(category)}
+  >
+    {category}
+  </Link>
 )

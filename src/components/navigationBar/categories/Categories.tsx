@@ -1,9 +1,9 @@
 import { FC } from "react";
-import { NavigationItem } from "./navigationItem";
-import { useGetCaterogies } from "../../services";
-import { Loader } from "../loader";
+import { NavigationItem } from "../navigationItem";
+import { useGetCaterogies } from "../../../services";
+import { Loader } from "../../loader";
 
-import styles from './navigation.module.scss'
+import styles from './categories.module.scss'
 
 export const Categories: FC = () => {
   const categories = useGetCaterogies()
