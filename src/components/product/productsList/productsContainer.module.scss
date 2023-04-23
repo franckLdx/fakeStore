@@ -1,0 +1,11 @@
+.productsContainer {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.loaderContainer {
+  width: 500px;
+  height: 500px;
+}

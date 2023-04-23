@@ -10,7 +10,7 @@ const Cart: FC = () => {
   return (
     <Page>
       <PageTitle title="Cart" />
-      <ProductsContainer productsQuery={products} />
+      <ProductsContainer>FOO</ProductsContainer>
     </Page>
   )
 }

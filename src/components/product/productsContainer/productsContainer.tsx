@@ -1,18 +1,13 @@
-import { FC } from "react"
-import { UseQueryResult } from "react-query"
-import { ProductData } from "../../../services/product"
-import { ProductCard } from "../productCard"
-import { Loader } from "../../loader"
+import { FC, ReactNode } from "react"
 
 import styles from './productsContainer.module.scss'
 
 interface ProductsContainerProps {
-  productsQuery: UseQueryResult<ProductData[], unknown>
+  children: ReactNode
 }
 
-export const ProductsContainer: FC<ProductsContainerProps> = ({ productsQuery }) => (
+export const ProductsContainer: FC<ProductsContainerProps> = ({ children }) => (
   <div className={styles.productsContainer}>
-    {productsQuery.isLoading && <Loader containerClassName={styles.loaderContainer} />}
-    {productsQuery.isSuccess && productsQuery.data.map(product => <ProductCard key={product.id} product={product} />)}
+    {children}
   </div>
 )

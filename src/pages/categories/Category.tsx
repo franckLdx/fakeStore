@@ -1,8 +1,8 @@
 import { FC } from "react";
 import { Page } from "../../components/page/Page";
 import { PageTitle } from "../../components/page/pageTitle/PageTitle";
-import { ProductsContainer } from "../../components/product/productsContainer/ProductsContainer";
 import { CategoryData, useGetProductsCategory } from "../../services/categories";
+import { ProductsList } from "../../components/product/productsList";
 
 interface CategoryProps {
   category: CategoryData
@@ -14,7 +14,7 @@ const Category: FC<CategoryProps> = ({ category }) => {
   return (
     <Page>
       <PageTitle title={category} />
-      <ProductsContainer productsQuery={products} />
+      <ProductsList productsQuery={products} />
     </Page>
   )
 }

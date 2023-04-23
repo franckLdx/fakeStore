@@ -1,8 +1,8 @@
 import { FC } from "react";
 import { Page } from "../../components/page/Page";
 import { PageTitle } from "../../components/page/pageTitle/PageTitle";
-import { ProductsContainer } from "../../components/product/productsContainer/ProductsContainer";
 import { useGetProducts } from "../../services/product";
+import { ProductsList } from "../../components/product/productsList";
 
 const BestSellers: FC = () => {
   const products = useGetProducts({ limit: 5 })
@@ -10,7 +10,7 @@ const BestSellers: FC = () => {
   return (
     <Page>
       <PageTitle title="Best Sellers" />
-      <ProductsContainer productsQuery={products} />
+      <ProductsList productsQuery={products} />
     </Page>
   )
 }
