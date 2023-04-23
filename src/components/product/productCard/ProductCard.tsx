@@ -10,6 +10,7 @@ interface ProductCardProps {
 
 export const ProductCard: FC<ProductCardProps> = ({ product }) => {
   const navigateToProduct = useNavigateToProduct(product.id)
+
   return (
     <div className={styles.productCard} onClick={navigateToProduct}>
       <h1 className={styles.title}>{product.title}</h1>

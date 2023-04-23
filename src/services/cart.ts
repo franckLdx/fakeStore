@@ -1,15 +1,15 @@
 import { useQuery } from "react-query";
 
-interface ProductCart {
+export interface ProductCartData {
   productId: number,
   quantity: number
 }
 
-interface CartData {
+export interface CartData {
   id: number,
   userId: number,
   date: string,
-  products: ProductCart[]
+  products: ProductCartData[]
 }
 
 export const useGetCart = () => useQuery({

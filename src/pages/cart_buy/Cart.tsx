@@ -3,6 +3,7 @@ import { Page } from "../../components/page/Page";
 import { PageTitle } from "../../components/page/pageTitle/PageTitle";
 import { ProductsContainer } from "../../components/product/productsContainer/ProductsContainer";
 import { useGetCart } from "../../services/cart";
+import { CartProduct } from "./CartProduct";
 
 const Cart: FC = () => {
   const { data } = useGetCart()
@@ -10,7 +11,9 @@ const Cart: FC = () => {
   return (
     <Page>
       <PageTitle title="Cart" />
-      <ProductsContainer>FOO</ProductsContainer>
+      <ProductsContainer>
+        {data?.products.map(productCartData => <CartProduct productCartData={productCartData} />)}
+      </ProductsContainer>
     </Page>
   )
 }
