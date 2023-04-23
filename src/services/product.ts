@@ -24,8 +24,8 @@ export const useGetProducts = ({ limit }: ProductParams) => useQuery({
   queryKey: ['products', limit],
   queryFn: async (): Promise<ProductData[]> => {
     const queryParams = limit != undefined ? `?limit=${limit}` : undefined
-    const res = await fetch(`${productUrl}${queryParams}`)
-    return res.json()
+    const result = await fetch(`${productUrl}${queryParams}`)
+    return result.json()
   }
 })
 

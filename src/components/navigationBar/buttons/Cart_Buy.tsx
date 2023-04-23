@@ -1,13 +1,11 @@
 import React, { FC } from 'react'
 import { NavButton } from './navButton'
-import { useNavigate } from 'react-router-dom'
+import { useNavigateToCard } from '../../../pages/cart_buy/routeHelpers'
 
 export const Card_Buy: FC = () => {
-  const navigate = useNavigate();
-  const onClick = () => navigate("/session-timed-out");
-
+  const navigate = useNavigateToCard()
   return (
-    <NavButton onClick={onClick}>
+    <NavButton onClick={navigate}>
       See Card & Buy !
     </NavButton>
   )

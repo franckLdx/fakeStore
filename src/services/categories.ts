@@ -14,7 +14,7 @@ export const useGetCaterogies = () => useQuery({
 export const useGetProductsCategory = (category: CategoryData) => useQuery({
   queryKey: ['categories', category],
   queryFn: async (): Promise<ProductData[]> => {
-    const res = await fetch(`${productUrl}category/${category}`)
-    return res.json()
+    const result = await fetch(`${productUrl}category/${category}`)
+    return result.json()
   }
 })

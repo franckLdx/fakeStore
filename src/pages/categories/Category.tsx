@@ -1,7 +1,7 @@
 import { FC } from "react";
 import { Page } from "../../components/page/Page";
 import { PageTitle } from "../../components/page/pageTitle/PageTitle";
-import { ProductsContainer } from "../../components/product/productsContainer/productsContainer";
+import { ProductsContainer } from "../../components/product/productsContainer/ProductsContainer";
 import { CategoryData, useGetProductsCategory } from "../../services/categories";
 
 interface CategoryProps {

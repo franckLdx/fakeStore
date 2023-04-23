@@ -1,10 +1,10 @@
 import { FC } from "react"
 import { UseQueryResult } from "react-query"
 import { ProductData } from "../../../services/product"
-import { ProductCard } from "../productCard/ProductCard"
+import { ProductCard } from "../productCard"
+import { Loader } from "../../loader"
 
 import styles from './productsContainer.module.scss'
-import { Loader } from "../../loader/Loader"
 
 interface ProductsContainerProps {
   productsQuery: UseQueryResult<ProductData[], unknown>

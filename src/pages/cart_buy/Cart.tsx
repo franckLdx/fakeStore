@@ -2,17 +2,17 @@ import { FC } from "react";
 import { Page } from "../../components/page/Page";
 import { PageTitle } from "../../components/page/pageTitle/PageTitle";
 import { ProductsContainer } from "../../components/product/productsContainer/ProductsContainer";
-import { useGetProducts } from "../../services/product";
+import { useGetCart } from "../../services/cart";
 
-const BestSellers: FC = () => {
-  const products = useGetProducts({ limit: 5 })
+const Cart: FC = () => {
+  const { data } = useGetCart()
 
   return (
     <Page>
-      <PageTitle title="Best Sellers" />
+      <PageTitle title="Cart" />
       <ProductsContainer productsQuery={products} />
     </Page>
   )
 }
 
-export default BestSellers
+export default Cart
