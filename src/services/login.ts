@@ -1,5 +1,5 @@
+import { useMutation } from "@tanstack/react-query";
 import { atom, useSetAtom } from "jotai";
-import { useMutation } from "react-query";
 
 export const loginUrl = 'https://fakestoreapi.com/auth/login';
 

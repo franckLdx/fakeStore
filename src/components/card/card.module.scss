@@ -1,4 +1,4 @@
-.productCard {
+.card {
   border: 2px solid black;
   padding: 5px;
   display: flex;
@@ -9,14 +9,14 @@
   box-shadow: 7px 5px 5px gray;
   margin-bottom: 20px;
   cursor: pointer;
+  .title {opacity: 80%;}
 
   &:active,
   &:hover {
     box-shadow: 15px 10px 10px gray;
+    .title {
+      font-weight: bolder;
+      opacity: 100%;
+    }
   }
-}
-
-.image {
-  width: 75%;
-  height: 75%;
 }

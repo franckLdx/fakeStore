@@ -1,8 +1,8 @@
 import { FC } from "react"
-import { UseQueryResult } from "react-query"
 import { ProductData } from "../../../services/product"
 import { ProductCard } from "../productCard"
 import { Container } from "../../container"
+import { UseQueryResult } from "@tanstack/react-query/build/lib/types"
 
 interface ProductsListProps {
   productsQuery: UseQueryResult<ProductData[], unknown>

@@ -12,7 +12,7 @@ const Cart: FC = () => {
     <Page>
       <PageTitle title="Cart" />
       <Container isLoading={getCartQuery.isLoading}>
-        {getCartQuery.data?.products.map(productCartData => <CartProduct productCartData={productCartData} />)}
+        {getCartQuery.data?.products.map(productCartData => <CartProduct key={productCartData.productId} productCart={productCartData} />)}
       </Container>
     </Page>
   )
