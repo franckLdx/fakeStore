@@ -3,6 +3,7 @@ import { useNavigateToProduct } from "../../../pages/product/routeHelper";
 import { ProductData } from "../../../services/product";
 
 import styles from "./productCard.module.scss";
+import { Loader } from "../../loader";
 
 interface ProductCardProps {
   product: ProductData

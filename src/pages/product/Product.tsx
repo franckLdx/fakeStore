@@ -6,11 +6,11 @@ import { useGetProduct } from "../../services/product";
 
 import styles from './product.module.scss';
 
-interface ProductProps {
+interface ProductPageProps {
   productId: number
 }
 
-const Product: FC<ProductProps> = ({ productId }) => {
+const ProductPage: FC<ProductPageProps> = ({ productId }) => {
   const productQuery = useGetProduct(productId)
 
   return (
@@ -30,4 +30,4 @@ const Product: FC<ProductProps> = ({ productId }) => {
   )
 }
 
-export default Product
+export default ProductPage

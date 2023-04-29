@@ -1,2 +1,2 @@
-export * from './productsContainer'
+export * from '../container'
 export * from './productCard'
