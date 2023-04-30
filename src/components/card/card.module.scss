@@ -11,6 +11,10 @@
   cursor: pointer;
   .title {opacity: 80%;}
 
+  &--fullWidth {
+    width: 100%;
+  }
+  
   &:active,
   &:hover {
     box-shadow: 15px 10px 10px gray;

@@ -1,9 +1,7 @@
 import { useMutation } from "@tanstack/react-query";
-import { atom, useSetAtom } from "jotai";
+import { atom, useAtomValue, useSetAtom } from "jotai";
 
 export const loginUrl = 'https://fakestoreapi.com/auth/login';
-
-export type TokentData = string
 
 export interface LoginParams {
   username: string
@@ -13,8 +11,9 @@ export interface LoginParams {
 export interface LoginResponse {
   token: string
 }
+
 export const useLogin = () => {
-  const setLoginToken = useSetAtom(loginToken)
+  const setLoginToken = useSetAtom(loginTokenAtom)
 
   return useMutation({
     mutationKey: ["login"],
@@ -37,5 +36,8 @@ export const useLogin = () => {
   })
 }
 
-export const loginToken = atom<string | undefined>(undefined)
-loginToken.debugLabel = "Login token"
+export const loginTokenAtom = atom<string | undefined>(undefined)
+loginTokenAtom.debugLabel = "Login token"
+
+export const useIsUserLogged = (): boolean =>
+  useAtomValue(loginTokenAtom) !== undefined

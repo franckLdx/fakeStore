@@ -1,8 +1,16 @@
 .container {
   display: flex;
-  flex-flow: row wrap;
   justify-content: space-around;
   align-items: center;
+  
+  &--grid{
+    flex-flow: row wrap;
+  }
+  
+  &--list {
+    flex-direction: column;
+  }
+
 }
 
 .loaderContainer {

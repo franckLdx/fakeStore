@@ -4,14 +4,14 @@ import { RouteObject, useNavigate } from "react-router-dom"
 const Cart = lazy(() => import("./Cart"))
 const NotFound = lazy(() => import('../NotFound'));
 
-export const url = '/card'
+export const url = '/cart'
 
-export const useNavigateToCard = (): () => void => {
+export const useNavigateToCart = (): () => void => {
   const navigate = useNavigate()
   return () => navigate(url)
 }
 
-export const cardBuyRoute: RouteObject = {
+export const cartBuyRoute: RouteObject = {
   path: url,
   element: <Cart />,
   errorElement: <NotFound />,

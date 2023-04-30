@@ -7,9 +7,9 @@ import { Dialog } from "../Dialog";
 import { useSetAtom } from "jotai";
 import { isDisplayLoginAtom } from "./atom";
 import { LoginWait } from "./LoginWait";
+import classNames from "classnames";
 
 import styles from './loginDialog.module.scss'
-import classNames from "classnames";
 
 export const LoginDialog: FC = () => {
   const setDisplayLoginAtom = useSetAtom(isDisplayLoginAtom)
