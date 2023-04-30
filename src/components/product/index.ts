@@ -1,2 +1,2 @@
 export * from '../container'
-export * from './productCard'
+export * from './productGridCard'

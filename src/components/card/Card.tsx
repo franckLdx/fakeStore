@@ -1,17 +1,17 @@
 import { FC, ReactNode } from "react";
 
 import styles from "./card.module.scss";
+import classNames from "classnames";
 
 interface CardProps {
-  variant: 'fitContent' | 'fullWidth'
+  className?: string
   children: ReactNode
   onClick?: () => void
 }
 
-export const Card: FC<CardProps> = ({ variant, children, onClick }) => {
-  const variantClassname = styles[`card--${variant}`]
+export const Card: FC<CardProps> = ({ className, children, onClick }) => {
   return (
-    <div className={`${styles.card} ${variantClassname}`} onClick={onClick}>
+    <div className={classNames(`${styles.card}  ${className}`, { [styles['card--clickable']]: onClick })} onClick={onClick}>
       {children}
     </div>
   )

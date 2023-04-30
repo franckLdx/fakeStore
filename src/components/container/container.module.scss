@@ -3,11 +3,11 @@
   justify-content: space-around;
   align-items: center;
   
-  &--grid{
+  &--row {
     flex-flow: row wrap;
   }
   
-  &--list {
+  &--column {
     flex-direction: column;
   }
 

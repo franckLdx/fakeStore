@@ -4,7 +4,7 @@ import { Loader } from "../loader"
 import styles from './container.module.scss'
 
 interface ContainerProps {
-  variant: 'grid' | 'list'
+  variant: 'row' | 'column'
   children: ReactNode
   isLoading?: boolean
 }

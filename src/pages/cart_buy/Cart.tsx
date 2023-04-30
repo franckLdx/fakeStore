@@ -25,7 +25,7 @@ const Cart: FC = () => {
   return (
     <Page>
       <PageTitle title="Cart" />
-      <Container variant="list" isLoading={getCartQuery.isLoading}>
+      <Container variant="column" isLoading={getCartQuery.isLoading}>
         <Button>FOO</Button>
         {getCartQuery.data?.products.map(productCartData => <CartProduct key={productCartData.productId} productCart={productCartData} />)}
       </Container>
